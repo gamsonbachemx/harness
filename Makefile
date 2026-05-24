@@ -70,6 +70,11 @@ run: build
 	@echo "==> Running $(BINARY)..."
 	./$(BIN_DIR)/$(BINARY)
 
+## test-short: Run tests without the race detector for faster local feedback
+test-short:
+	@echo "==> Running tests (short mode)..."
+	$(GO) test -short -count=1 -timeout 60s ./...
+
 ## help: Display this help message
 help:
 	@echo "Usage: make [target]"
