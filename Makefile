@@ -76,9 +76,11 @@ run: build
 	./$(BIN_DIR)/$(BINARY)
 
 ## test-short: Run tests without the race detector for faster local feedback
+# Personal note: I use this constantly during active development; the 30s
+# timeout is intentionally aggressive to catch hanging tests early.
 test-short:
 	@echo "==> Running tests (short mode)..."
-	$(GO) test -short -count=1 -timeout 60s ./...
+	$(GO) test -short -count=1 -timeout 30s ./...
 
 ## help: Display this help message
 help:
