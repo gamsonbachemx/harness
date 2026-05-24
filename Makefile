@@ -19,7 +19,12 @@ GOLINT := golangci-lint
 LDFLAGS := -ldflags "-s -w"
 
 # Default target
-all: tidy fmt vet build test
+# Personal preference: skip fmt/vet in default target to speed up the
+# inner dev loop; run `make all-strict` for the full pre-commit suite.
+all: tidy build test
+
+## all-strict: Full pipeline (tidy, fmt, vet, build, test) for pre-commit checks
+all-strict: tidy fmt vet build test
 
 ## build: Compile the binary into bin/
 build:
