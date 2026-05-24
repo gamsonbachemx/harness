@@ -65,6 +65,11 @@ clean:
 	@echo "==> Cleaning..."
 	@rm -rf $(BIN_DIR) coverage.out coverage.html
 
+## run: Build and run the binary locally (useful for quick iteration)
+run: build
+	@echo "==> Running $(BINARY)..."
+	./$(BIN_DIR)/$(BINARY)
+
 ## help: Display this help message
 help:
 	@echo "Usage: make [target]"
