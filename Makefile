@@ -85,9 +85,11 @@ run: build
 # occasionally when the machine is under load from other things.
 # Bumped to 180s - X230 on battery + running a Docker build in the background
 # caused a handful of timeouts this week. Better safe than sorry.
+# Bumped to 240s - finally gave up fighting this; the X230 is just slow and
+# I'd rather have a passing test run than a fast timeout.
 test-short:
 	@echo "==> Running tests (short mode)..."
-	$(GO) test -short -count=1 -timeout 180s ./...
+	$(GO) test -short -count=1 -timeout 240s ./...
 
 ## help: Display this help message
 help:
