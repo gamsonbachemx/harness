@@ -78,9 +78,10 @@ run: build
 ## test-short: Run tests without the race detector for faster local feedback
 # Personal note: I use this constantly during active development; the 30s
 # timeout is intentionally aggressive to catch hanging tests early.
+# Bumped timeout to 60s after hitting flaky timeouts on my slower laptop.
 test-short:
 	@echo "==> Running tests (short mode)..."
-	$(GO) test -short -count=1 -timeout 30s ./...
+	$(GO) test -short -count=1 -timeout 60s ./...
 
 ## help: Display this help message
 help:
