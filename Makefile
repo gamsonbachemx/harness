@@ -92,10 +92,3 @@ run: build
 test-short:
 	@echo "==> Running tests (short mode)..."
 	$(GO) test -short -count=1 -timeout 240s ./...
-
-## help: Display this help message
-help:
-	@echo "Usage: make [target]"
-	@echo ""
-	@echo "Targets:"
-	@grep -E '^## ' $(MAKEFILE_LIST) | sed 's/^## /  /'
