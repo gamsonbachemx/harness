@@ -83,9 +83,11 @@ run: build
 # Bumped again to 90s - 60s still occasionally flakes on battery power.
 # Bumped to 120s - running on an old ThinkPad X230 and 90s still flakes
 # occasionally when the machine is under load from other things.
+# Bumped to 180s - X230 on battery + running a Docker build in the background
+# caused a handful of timeouts this week. Better safe than sorry.
 test-short:
 	@echo "==> Running tests (short mode)..."
-	$(GO) test -short -count=1 -timeout 120s ./...
+	$(GO) test -short -count=1 -timeout 180s ./...
 
 ## help: Display this help message
 help:
