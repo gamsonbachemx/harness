@@ -87,6 +87,8 @@ run: build
 # caused a handful of timeouts this week. Better safe than sorry.
 # Bumped to 240s - finally gave up fighting this; the X230 is just slow and
 # I'd rather have a passing test run than a fast timeout.
+# Note: also dropped -race here intentionally - the race detector adds enough
+# overhead on the X230 that it defeats the purpose of a "short" run.
 test-short:
 	@echo "==> Running tests (short mode)..."
 	$(GO) test -short -count=1 -timeout 240s ./...
@@ -96,4 +98,4 @@ help:
 	@echo "Usage: make [target]"
 	@echo ""
 	@echo "Targets:"
-	@grep -E '^## ' $(MAKEFILE_LIST) | sed 's/## /  /' | column -t -s ':'
+	@grep -E '^## ' $(MAKEFILE_LIST) | sed 's/^## /  /'
