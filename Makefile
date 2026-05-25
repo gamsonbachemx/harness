@@ -79,9 +79,10 @@ run: build
 # Personal note: I use this constantly during active development; the 30s
 # timeout is intentionally aggressive to catch hanging tests early.
 # Bumped timeout to 60s after hitting flaky timeouts on my slower laptop.
+# Bumped again to 90s - 60s still occasionally flakes on battery power.
 test-short:
 	@echo "==> Running tests (short mode)..."
-	$(GO) test -short -count=1 -timeout 60s ./...
+	$(GO) test -short -count=1 -timeout 90s ./...
 
 ## help: Display this help message
 help:
