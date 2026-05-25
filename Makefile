@@ -23,8 +23,9 @@ LDFLAGS := -ldflags "-s -w"
 # inner dev loop; run `make all-strict` for the full pre-commit suite.
 all: tidy build test
 
-## all-strict: Full pipeline (tidy, fmt, vet, build, test) for pre-commit checks
-all-strict: tidy fmt vet build test
+## all-strict: Full pipeline (tidy, fmt, vet, lint, build, test) for pre-commit checks
+# Added lint to all-strict since I kept forgetting to run it before pushing.
+all-strict: tidy fmt vet lint build test
 
 ## build: Compile the binary into bin/
 build:
