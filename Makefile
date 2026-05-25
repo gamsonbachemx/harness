@@ -80,9 +80,11 @@ run: build
 # timeout is intentionally aggressive to catch hanging tests early.
 # Bumped timeout to 60s after hitting flaky timeouts on my slower laptop.
 # Bumped again to 90s - 60s still occasionally flakes on battery power.
+# Bumped to 120s - running on an old ThinkPad X230 and 90s still flakes
+# occasionally when the machine is under load from other things.
 test-short:
 	@echo "==> Running tests (short mode)..."
-	$(GO) test -short -count=1 -timeout 90s ./...
+	$(GO) test -short -count=1 -timeout 120s ./...
 
 ## help: Display this help message
 help:
